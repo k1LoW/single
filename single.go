@@ -7,9 +7,10 @@ const (
 	escape = '\\'
 )
 
-func Quote(in string) string {
+// Quote returns a single-quoted Go string literal representing s. But, nothing else escapes.
+func Quote(s string) string {
 	out := []rune{quote}
-	for _, r := range in {
+	for _, r := range s {
 		switch r {
 		case quote:
 			out = append(out, escape, r)
@@ -21,16 +22,17 @@ func Quote(in string) string {
 	return string(out)
 }
 
-func Unquote(in string) (string, error) {
-	if len(in) < 2 {
+// Unquote interprets s as a single-quoted Go string literal, returning the string value that s quotes.
+func Unquote(s string) (string, error) {
+	if len(s) < 2 {
 		return "", errors.New("invalid syntax")
 	}
-	if in[0] != quote || in[len(in)-1] != quote {
+	if s[0] != quote || s[len(s)-1] != quote {
 		return "", errors.New("invalid syntax")
 	}
 	out := []rune{}
 	escaped := false
-	for _, r := range in[1 : len(in)-1] {
+	for _, r := range s[1 : len(s)-1] {
 		switch r {
 		case escape:
 			escaped = !escaped
