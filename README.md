@@ -1,3 +1,3 @@
 # single [![build](https://github.com/k1LoW/single/actions/workflows/ci.yml/badge.svg)](https://github.com/k1LoW/single/actions/workflows/ci.yml) [![Go Reference](https://pkg.go.dev/badge/github.com/k1LoW/single.svg)](https://pkg.go.dev/github.com/k1LoW/single) ![Coverage](https://raw.githubusercontent.com/k1LoW/octocovs/main/badges/k1LoW/single/coverage.svg) ![Code to Test Ratio](https://raw.githubusercontent.com/k1LoW/octocovs/main/badges/k1LoW/single/ratio.svg) ![Test Execution Time](https://raw.githubusercontent.com/k1LoW/octocovs/main/badges/k1LoW/single/time.svg)
 
-`single` package provides single.Quote and single.Unquote for quoting/unquoting with single quotes.
+`single` package provides [single.Quote](https://pkg.go.dev/github.com/k1LoW/single#Quote) and [single.Unquote](https://pkg.go.dev/github.com/k1LoW/single#Unquote) for quoting/unquoting with single quotes.
