@@ -1,6 +1,8 @@
 package single
 
-import "errors"
+import (
+	"errors"
+)
 
 const (
 	quote  = '\''
