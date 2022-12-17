@@ -7,6 +7,8 @@ const (
 	escape = '\\'
 )
 
+var ErrSyntax = errors.New("invalid syntax")
+
 // Quote returns a single-quoted Go string literal representing s. But, nothing else escapes.
 func Quote(s string) string {
 	out := []rune{quote}
@@ -25,10 +27,10 @@ func Quote(s string) string {
 // Unquote interprets s as a single-quoted Go string literal, returning the string value that s quotes.
 func Unquote(s string) (string, error) {
 	if len(s) < 2 {
-		return "", errors.New("invalid syntax")
+		return "", ErrSyntax
 	}
 	if s[0] != quote || s[len(s)-1] != quote {
-		return "", errors.New("invalid syntax")
+		return "", ErrSyntax
 	}
 	out := []rune{}
 	escaped := false
@@ -41,7 +43,7 @@ func Unquote(s string) (string, error) {
 			}
 		case quote:
 			if !escaped {
-				return "", errors.New("invalid syntax")
+				return "", ErrSyntax
 			}
 			out = append(out, r)
 			escaped = false
